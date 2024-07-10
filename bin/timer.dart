@@ -1,24 +1,55 @@
-class Timer {
+import 'dart:async';
+
+class MTimer {
   int startingFromTheMinute;
   int intervalBetweenMinutes;
-  int nextStep = 0;
+  int nextDesiredTime = 0;
   Function action;
 
-  Timer(this.startingFromTheMinute, this.intervalBetweenMinutes, this.action);
-
-  next(int currentMinute) {
-    if (currentMinute >= nextStep) {
-      if (currentMinute + intervalBetweenMinutes > 59) {
-        nextStep = 60 - currentMinute - intervalBetweenMinutes;
-      }
-      nextStep += intervalBetweenMinutes;
-      execute();
+  MTimer(this.startingFromTheMinute, this.intervalBetweenMinutes, this.action,
+      int currentMinure) {
+    for (var i = startingFromTheMinute;
+        i < currentMinure;
+        i += intervalBetweenMinutes) {
+      nextDesiredTime = i + intervalBetweenMinutes;
     }
   }
 
-  execute() {
-    action.call();
+  desiredTimeChecking(int currentMinute) {
+    if (currentMinute >= nextDesiredTime) {
+      if (currentMinute - nextDesiredTime <= intervalBetweenMinutes) {
+        var tmpNextTime = currentMinute + intervalBetweenMinutes;
+        if (tmpNextTime > 59) {
+          nextDesiredTime = (60 - tmpNextTime).abs();
+        } else {
+          nextDesiredTime = tmpNextTime;
+        }
+        action.call();
+        // execute();
+      }
+    }
   }
+
+  // execute() {
+  //   action.call();
+  // }
 }
 
-class TimerHandler {}
+class TimerHandler {
+  static const timer = Duration(seconds: 5);
+  var timerList = List<MTimer>.empty(growable: true);
+
+  TimerHandler() {
+    Timer.periodic(timer, (Timer t) => _call());
+  }
+
+  addTimer(MTimer timer) {
+    timerList.add(timer);
+  }
+
+  _call() {
+    for (var t in timerList) {
+      t.desiredTimeChecking(DateTime.now().minute);
+    }
+  }
+}

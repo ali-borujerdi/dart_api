@@ -14,23 +14,40 @@ class GydApi {
     return await _dio.post(path, data: {'period': "1Y"});
   }
 
+  Future<Response> _getHttp2({required String path}) async {
+    return await _dio.post(path, data: {"network": "ethereum", "period": "1Y"});
+  }
+
   Future<GydInfo> getApi() async {
     var g = GydInfo();
 
     Response response = await _getHttp(path: path1);
+    Response response2 = await _getHttp2(path: path2);
     var hh = response.data as List<dynamic>;
+    var hh2 = response2.data as List<dynamic>;
+
     // var cc = await _dio.transformer.transformResponse(RequestOptions(),response.data);
 
     // print (response);
 
     final data = hh.last as Map<String, dynamic>;
-    // final jj = jsonDecode(data.toString());
-    print(data.toString());
+    final data2 = hh2.last as Map<String, dynamic>;
 
+    var ccc = data2['gydSupply'];
+
+    if (ccc != null && ccc.length > 0) {
+      ccc = ccc.substring(0, ccc.length - 18);
+    }
+
+    // var ddd = double.parse(ccc);
+    // final jj = jsonDecode(data.toString());
+    // print(data.toString());
+    // print(ddd.toString());
     // print(data['totalReserveValue0']);
 
     g.gydPrice = double.parse(data['gydPrice']);
     g.gydAllVolume = double.parse(data['gydAllVolume']);
+    g.gydEthSupply = double.parse(ccc);
 
     return g;
     // setState(() {
@@ -47,4 +64,5 @@ class GydApi {
 class GydInfo {
   late double gydPrice;
   late double gydAllVolume;
+  late double gydEthSupply;
 }
