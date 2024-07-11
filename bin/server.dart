@@ -99,11 +99,10 @@ void handleTimeout() async {
 
     var f3 = NumberFormat("0.00000");
     final s4 = f3.format(gyd.gydPrice);
-
     final ss = f.format(gyd.gydEthSupply / 1000000.0);
 
     bot.sendMessage(
-        '\n🔹GYD Stablecoin:\n▫️Price : \$$s4\n▫️Total Supply : \$${ss}M \n▫️Total Volume : \$${s}M \n\n🔹SPIN Camping:\n▫️Total Users : $s2\n▫️Total Points : $s3\n');
+        '\n🔹GYD Stablecoin :\n▫️Price : \$$s4\n▫️Total Supply : \$${ss}M \n▫️Total Volume : \$${s}M \n\n🔹SPIN Camping :\n▫️Total Users : $s2\n▫️Total Points : $s3\n');
   }
 }
 
