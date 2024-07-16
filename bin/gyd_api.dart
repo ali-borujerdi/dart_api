@@ -28,7 +28,8 @@ class GydApi {
 
     // var cc = await _dio.transformer.transformResponse(RequestOptions(),response.data);
 
-    // print (response);
+    print(response.toString());
+    print(response2.toString());
 
     final data = hh.last as Map<String, dynamic>;
     final data2 = hh2.last as Map<String, dynamic>;

@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:intl/intl.dart';
+import 'package:objectbox/objectbox.dart';
 import 'package:shelf/shelf.dart';
 import 'package:shelf/shelf_io.dart';
 import 'package:shelf_router/shelf_router.dart';
@@ -42,6 +43,10 @@ Response _pointHandler(Request request) {
 }
 
 void main(List<String> args) async {
+  /////////////////////
+  ///
+  // final Store store =Store(directory: "memory:test-db");
+  /////////////////////
   bot.telegramBotStart();
   // Use any available host or container IP (usually `0.0.0.0`).
   final ip = InternetAddress.anyIPv4;
@@ -59,7 +64,7 @@ void main(List<String> args) async {
   // const timer = Duration(seconds: 60);
   // Timer.periodic(timer, (Timer t) => handleTimeout());
 
-  var timer1 = MTimer(0, 10, handleTimeout, DateTime.now().minute);
+  var timer1 = MTimer(0, 1, handleTimeout, DateTime.now().minute);
   var timer2 = MTimer(1, 2, handleTimeout2, DateTime.now().minute);
 
   var handler1 = TimerHandler();
@@ -101,8 +106,8 @@ void handleTimeout() async {
     final s4 = f3.format(gyd.gydPrice);
     final ss = f.format(gyd.gydEthSupply / 1000000.0);
 
-    bot.sendMessage(
-        '\n🔹GYD Stablecoin :\n▫️Price : \$$s4\n▫️Total Supply : \$${ss}M \n▫️Total Volume : \$${s}M \n\n🔹SPIN Camping :\n▫️Total Users : $s2\n▫️Total Points : $s3\n');
+    // bot.sendMessage(
+    // '\n🔹GYD Stablecoin :\n▫️Price : \$$s4\n▫️Total Supply : \$${ss}M \n▫️Total Volume : \$${s}M \n\n🔹SPIN Camping :\n▫️Total Users : $s2\n▫️Total Points : $s3\n');
   }
 }
 
@@ -133,8 +138,8 @@ void handleTimeout2() async {
     var f3 = NumberFormat("0.00000");
     final s4 = f3.format(gyd.gydPrice);
 
-    bot.sendMessage(
-        '🔹SPIN Camping:\n▫️Total Users : $s2\n▫️Total Points : $s3\n');
+    // bot.sendMessage(
+    // '🔹SPIN Camping:\n▫️Total Users : $s2\n▫️Total Points : $s3\n');
   }
 
   // bot.sendMessage('GYD total volume = ${gyd.gydAllVolume}');
