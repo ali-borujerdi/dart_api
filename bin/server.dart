@@ -45,7 +45,7 @@ Response _pointHandler(Request request) {
 void main(List<String> args) async {
   /////////////////////
   ///
-  // final Store store =Store(directory: "memory:test-db");
+  // final Store store =Store(,directory: "memory:test-db");
   /////////////////////
   bot.telegramBotStart();
   // Use any available host or container IP (usually `0.0.0.0`).

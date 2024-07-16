@@ -9,13 +9,14 @@ class UserDB {
 
   String referredBy;
 
-  double totalPoints;
+  // double totalPoints;
 
-  UserDB(
-      {required this.id,
-      required this.address,
-      required this.referredBy,
-      required this.totalPoints});
+  UserDB({
+    required this.id,
+    required this.address,
+    required this.referredBy,
+    // required this.totalPoints}
+  });
 }
 
 // {
