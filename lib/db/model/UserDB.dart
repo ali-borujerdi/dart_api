@@ -3,19 +3,27 @@ import 'package:objectbox/objectbox.dart';
 @Entity()
 class UserDB {
   @Id()
-  int id;
+  int dbId;
+
+  int serverId;
 
   String address;
 
   String referredBy;
+  String referredBy2nd;
 
-  // double totalPoints;
+  List<String> referrals;
+
+  double totalPoints;
 
   UserDB({
-    required this.id,
+    this.dbId = 0,
+    required this.serverId,
     required this.address,
     required this.referredBy,
-    // required this.totalPoints}
+    required this.referredBy2nd,
+    required this.referrals,
+    required this.totalPoints,
   });
 }
 

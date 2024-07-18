@@ -23,10 +23,10 @@ dev_dependencies:
   test: ^1.24.0
   # analyzer: ^5.13.0 
 
-objectbox:
-  # Writes objectbox-model.json and objectbox.g.dart to lib/custom (and test/custom).
-  output_dir: bin
-  # Or optionally specify the lib and test output folder separately.
-  # output_dir:
-  #   lib: custom
-  #   test: other
+# objectbox:
+#   # Writes objectbox-model.json and objectbox.g.dart to lib/custom (and test/custom).
+#   output_dir: bin
+#   # Or optionally specify the lib and test output folder separately.
+#   # output_dir:
+#   #   lib: custom
+#   #   test: other

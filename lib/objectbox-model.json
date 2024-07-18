@@ -1,0 +1,96 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:510316671505674674",
+      "lastPropertyId": "5:182684569620813022",
+      "name": "GydInfoDB",
+      "properties": [
+        {
+          "id": "1:7061759677163194773",
+          "name": "dbId",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:6683940702404912993",
+          "name": "gydPrice",
+          "type": 8
+        },
+        {
+          "id": "3:6334980785175322591",
+          "name": "gydAllVolume",
+          "type": 8
+        },
+        {
+          "id": "4:7519195328981451723",
+          "name": "gydEthSupply",
+          "type": 8
+        },
+        {
+          "id": "5:182684569620813022",
+          "name": "timeStamp",
+          "type": 6
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:8577212662217132438",
+      "lastPropertyId": "7:2904244260572974894",
+      "name": "UserDB",
+      "properties": [
+        {
+          "id": "1:8005716863656036538",
+          "name": "dbId",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:8618342731099775659",
+          "name": "serverId",
+          "type": 6
+        },
+        {
+          "id": "3:6917134914778632454",
+          "name": "address",
+          "type": 9
+        },
+        {
+          "id": "4:1494433874252301917",
+          "name": "referredBy",
+          "type": 9
+        },
+        {
+          "id": "5:5933284226250100591",
+          "name": "referredBy2nd",
+          "type": 9
+        },
+        {
+          "id": "6:1497586912687075114",
+          "name": "referrals",
+          "type": 30
+        },
+        {
+          "id": "7:2904244260572974894",
+          "name": "totalPoints",
+          "type": 8
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "2:8577212662217132438",
+  "lastIndexId": "0:0",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}
