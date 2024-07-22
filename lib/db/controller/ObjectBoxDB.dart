@@ -17,29 +17,29 @@ class ObjectBoxDB {
     final id = box.put(user);
   }
 
-  putGydInfo(GydInfoDB gyd) {
-    gydBox.put(gyd);
-  }
+  // putGydInfo(GydInfoDB gyd) {
+  //   gydBox.put(gyd);
+  // }
 
-  List<GydInfoDB> getLastFromTime(int timeEpoch) {
-    Query<GydInfoDB> query = gydBox
-        .query(GydInfoDB_.timeStamp.lessOrEqual(timeEpoch))
-        .order(GydInfoDB_.timeStamp, flags: Order.descending)
-        .build();
-    query.limit = 3;
-    List<GydInfoDB> uList = query.find();
-    return uList;
-  }
+  // List<GydInfoDB> getLastFromTime(int timeEpoch) {
+  //   Query<GydInfoDB> query = gydBox
+  //       .query(GydInfoDB_.timeStamp.lessOrEqual(timeEpoch))
+  //       .order(GydInfoDB_.timeStamp, flags: Order.descending)
+  //       .build();
+  //   query.limit = 3;
+  //   List<GydInfoDB> uList = query.find();
+  //   return uList;
+  // }
 
-  List<GydInfoDB> getLastGydInfo() {
-    Query<GydInfoDB> query = gydBox
-        .query()
-        .order(GydInfoDB_.timeStamp, flags: Order.descending)
-        .build();
-    query.limit = 1;
-    List<GydInfoDB> uList = query.find();
-    return uList;
-  }
+  // List<GydInfoDB> getLastGydInfo() {
+  //   Query<GydInfoDB> query = gydBox
+  //       .query()
+  //       .order(GydInfoDB_.timeStamp, flags: Order.descending)
+  //       .build();
+  //   query.limit = 1;
+  //   List<GydInfoDB> uList = query.find();
+  //   return uList;
+  // }
 
   printAll() {
     Query<GydInfoDB> query = gydBox.query().build();

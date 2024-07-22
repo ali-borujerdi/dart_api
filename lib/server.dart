@@ -4,6 +4,8 @@ import 'dart:io';
 import 'package:dart_api/db/controller/ObjectBoxDB.dart';
 import 'package:dart_api/db/model/GydInfoDB.dart';
 import 'package:dart_api/objectbox.g.dart';
+import 'package:dart_api/repository/gyd_info_db_data_repository.dart';
+import 'package:dart_api/repository/repository_interfaces.dart';
 import 'package:intl/intl.dart';
 import 'package:objectbox/objectbox.dart';
 import 'package:shelf/shelf.dart';
@@ -16,6 +18,9 @@ import 'telegram_bot.dart';
 import 'timer.dart';
 
 // ali
+
+late GydInfoDBRepository gydRepository;
+
 final user = UserInfo();
 // late GydInfoDB gyd;
 List<GydInfoDB> gyd = List.empty(growable: true);
@@ -58,11 +63,15 @@ void main(List<String> args) async {
   // final Store store = Store(getObjectBoxModel(), directory: "memory:test-db");
   final Store store = Store(getObjectBoxModel(), directory: "/db");
 
+  gydRepository = GydInfoDbDataRepository(store: store);
+
   db = ObjectBoxDB(store: store);
 
   db.printAll();
 
-  var ghj = db.getLastGydInfo();
+  var ghj = gydRepository.getLastGydInfoDb();
+  // var ghj = db.getLastGydInfo();
+
   print(ghj.first.timeStamp);
   // openStore(); //Store(getObjectBoxModel(),directory: "memory:test-db");
   /////////////////////
@@ -173,7 +182,7 @@ void handleTimeout() async {
 
     // gyd = await api2.getApi();
 
-    gyd[0] = db.getLastGydInfo().first;
+    gyd[0] = gydRepository.getLastGydInfoDb().first;
 
     // gyd.gydPrice = g2.gydPrice;
     // gyd.gydAllVolume = g2.gydAllVolume;
@@ -196,7 +205,7 @@ void handleTimeout() async {
       final s2 = f2.format(spins.total_users);
       final s3 = f2.format(spins.total_points);
       // final s2 = f2.format(1000000);
-
+      print('test');
       var f3 = NumberFormat("0.00000");
       final s4 = f3.format(gyd[0].gydPrice);
       final ss = f.format(gyd[0].gydEthSupply / 1000000.0);
@@ -228,7 +237,8 @@ void dbHandlerTimeout() async {
     // gyd.gydEthSupply = g2.gydEthSupply;
     print('Get GYD... Price : ${gyd[0].gydPrice}');
 
-    db.putGydInfo(gyd[0]);
+    gydRepository.save(gyd[0]);
+    // db.putGydInfo(gyd[0]);
 
     // var aaa = await api.getAllSpin();
     // spins.total_users = aaa.total_users;
