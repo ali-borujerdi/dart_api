@@ -205,7 +205,7 @@ void handleTimeout() async {
       final s2 = f2.format(spins.total_users);
       final s3 = f2.format(spins.total_points);
       // final s2 = f2.format(1000000);
-      print('test');
+      print('testtt');
       var f3 = NumberFormat("0.00000");
       final s4 = f3.format(gyd[0].gydPrice);
       final ss = f.format(gyd[0].gydEthSupply / 1000000.0);
