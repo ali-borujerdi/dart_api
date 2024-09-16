@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:dart_api/Core/Timing/scheduled_task.dart';
 import 'package:dart_api/db/controller/ObjectBoxDB.dart';
 import 'package:dart_api/db/model/GydInfoDB.dart';
 import 'package:dart_api/objectbox.g.dart';
@@ -13,9 +14,9 @@ import 'package:shelf/shelf_io.dart';
 import 'package:shelf_router/shelf_router.dart';
 
 import 'spin.dart';
-import 'gyd_api.dart';
+import 'Data/Network/gyd_api.dart';
 import 'telegram_bot.dart';
-import 'timer.dart';
+import 'Core/Timing/timing_handler.dart';
 
 // ali
 
@@ -92,15 +93,15 @@ void main(List<String> args) async {
   // const timer = Duration(seconds: 60);
   // Timer.periodic(timer, (Timer t) => handleTimeout());
 
-  var timer1 = MTimer(1, 2, handleTimeout, DateTime.now().minute);
+  var timer1 = ScheduledTask(1, 2, handleTimeout, DateTime.now().minute);
   // var timer2 = MTimer(1, 2, handleTimeout2, DateTime.now().minute);
 
-  var timer3 = MTimer(0, 1, dbHandlerTimeout, DateTime.now().minute);
+  var timer3 = ScheduledTask(0, 1, dbHandlerTimeout, DateTime.now().minute);
 
   print('db user count = ${db.size()}');
 
   // fetchUsers('0x37c6726459872BdbB464C65eAeB44a6155Ade3C2');
-  var handler1 = TimerHandler();
+  var handler1 = TimingHandler();
   handler1.addTimer(timer3);
   // handler1.addTimer(timer1);
   // handler1.addTimer(timer2);

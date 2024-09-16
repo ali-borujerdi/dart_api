@@ -1,17 +1,16 @@
-class MTimer {
+class ScheduledTask {
   int startingFromTheMinute;
   int intervalBetweenMinutes;
   int nextDesiredTime = 0;
-  Function action;
+  Function task;
 
-  MTimer(this.startingFromTheMinute, this.intervalBetweenMinutes, this.action,
-      int currentMinure) {
+  ScheduledTask(this.startingFromTheMinute, this.intervalBetweenMinutes,
+      this.task, int currentMinure) {
     for (var i = startingFromTheMinute;
         i < currentMinure;
         i += intervalBetweenMinutes) {
       nextDesiredTime = i + intervalBetweenMinutes;
     }
-    //???
   }
 
   desiredTimeChecking(int currentMinute) {
@@ -23,8 +22,7 @@ class MTimer {
         } else {
           nextDesiredTime = tmpNextTime;
         }
-        action.call();
-        // execute();
+        task.call();
       }
     }
   }
