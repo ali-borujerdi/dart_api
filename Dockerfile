@@ -8,8 +8,8 @@ RUN dart pub get
 # RUN curl -s https://raw.githubusercontent.com/objectbox/objectbox-dart/main/install.sh -o install.sh && \
 #     bash install.sh && \
 #     rm install.sh
-RUN mkdir -p /usr/lib && \
-    cp ./native/lib/libobjectbox.so /usr/lib/
+# RUN mkdir -p /usr/lib && \
+    # cp ./native/lib/libobjectbox.so /usr/lib/
 
 ENV LD_LIBRARY_PATH="/usr/lib"
     

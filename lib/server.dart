@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ffi';
 import 'dart:io';
 
 import 'package:dart_api/Core/Timing/scheduled_task.dart';
@@ -61,6 +62,7 @@ Response _pointHandler(Request request) {
 
 void main(List<String> args) async {
   try {
+    DynamicLibrary.open('/usr/lib/libobjectbox.so');
     globalStore = Store(getObjectBoxModel(), directory: "/db");
   } catch (e) {
     print(e);
