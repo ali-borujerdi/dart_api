@@ -5,9 +5,12 @@ FROM dart:stable AS build
 WORKDIR /app
 COPY pubspec.* ./
 RUN dart pub get
-# RUN curl -s https://raw.githubusercontent.com/objectbox/objectbox-dart/main/install.sh -o install.sh && \
-    # bash install.sh && \
-#     rm install.sh
+
+RUN curl -s https://raw.githubusercontent.com/objectbox/objectbox-dart/main/install.sh -o install.sh && \
+    bash install.sh && \
+    rm install.sh
+
+
 RUN mkdir -p /usr/lib && \
     cp ./lib/libobjectbox.so /usr/lib/
 
