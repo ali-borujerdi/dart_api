@@ -9,6 +9,14 @@ class FetchGyroMainPageInfo {
   FetchGyroMainPageInfo({required this.repository});
 
   void run() async {
+    try {
+      await _phase1();
+    } catch (e) {}
+
+    globalPostGydStatusToTelegram.run();
+  }
+
+  _phase1() async {
     var dPrice = 0.0;
     var dTotalTvl = 0.0;
     var dAllVolume = 0.0;
@@ -39,8 +47,6 @@ class FetchGyroMainPageInfo {
     print(dTotalTvl);
     print(dAllVolume);
     print(dGydAllVolume);
-
-    globalPostGydStatusToTelegram.run();
   }
 
   double _getGydPriceAsDouble(String response) {
