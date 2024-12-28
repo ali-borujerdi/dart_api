@@ -4,40 +4,6 @@
   "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
   "entities": [
     {
-      "id": "1:510316671505674674",
-      "lastPropertyId": "5:182684569620813022",
-      "name": "GydInfoDB",
-      "properties": [
-        {
-          "id": "1:7061759677163194773",
-          "name": "dbId",
-          "type": 6,
-          "flags": 1
-        },
-        {
-          "id": "2:6683940702404912993",
-          "name": "gydPrice",
-          "type": 8
-        },
-        {
-          "id": "3:6334980785175322591",
-          "name": "gydAllVolume",
-          "type": 8
-        },
-        {
-          "id": "4:7519195328981451723",
-          "name": "gydEthSupply",
-          "type": 8
-        },
-        {
-          "id": "5:182684569620813022",
-          "name": "timeStamp",
-          "type": 6
-        }
-      ],
-      "relations": []
-    },
-    {
       "id": "2:8577212662217132438",
       "lastPropertyId": "7:2904244260572974894",
       "name": "UserDB",
@@ -80,17 +46,98 @@
         }
       ],
       "relations": []
+    },
+    {
+      "id": "4:4096153556148479265",
+      "lastPropertyId": "4:3221273308216053494",
+      "name": "GyroPoolSnapshotDataModel",
+      "properties": [
+        {
+          "id": "1:9134482401615077961",
+          "name": "dbId",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:5736198619145989343",
+          "name": "chainId",
+          "type": 6
+        },
+        {
+          "id": "3:4622101564054747599",
+          "name": "tvl",
+          "type": 8
+        },
+        {
+          "id": "4:3221273308216053494",
+          "name": "time",
+          "type": 6
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "5:3516081754157739610",
+      "lastPropertyId": "6:9164996225186336938",
+      "name": "GydStatusSnapshotDataModel",
+      "properties": [
+        {
+          "id": "1:4981881289561362106",
+          "name": "dbId",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:6152571073247902047",
+          "name": "gydPrice",
+          "type": 8
+        },
+        {
+          "id": "3:8862508039335764551",
+          "name": "gydAllVolume",
+          "type": 8
+        },
+        {
+          "id": "4:2452383942745297283",
+          "name": "totalTVL",
+          "type": 8
+        },
+        {
+          "id": "5:6188816338625594969",
+          "name": "allVolume",
+          "type": 8
+        },
+        {
+          "id": "6:9164996225186336938",
+          "name": "timeStamp",
+          "type": 6
+        }
+      ],
+      "relations": []
     }
   ],
-  "lastEntityId": "2:8577212662217132438",
+  "lastEntityId": "5:3516081754157739610",
   "lastIndexId": "0:0",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",
   "modelVersion": 5,
   "modelVersionParserMinimum": 5,
-  "retiredEntityUids": [],
+  "retiredEntityUids": [
+    7935609546681992691,
+    510316671505674674
+  ],
   "retiredIndexUids": [],
-  "retiredPropertyUids": [],
+  "retiredPropertyUids": [
+    6788785300855491921,
+    6873011784982928703,
+    5616165896773225222,
+    4437306356314160695,
+    7061759677163194773,
+    6683940702404912993,
+    6334980785175322591,
+    7519195328981451723,
+    182684569620813022
+  ],
   "retiredRelationUids": [],
   "version": 1
 }

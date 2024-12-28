@@ -1,16 +1,16 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:dart_api/db/model/UserDB.dart';
-import 'package:dart_api/db/model/GydInfoDB.dart';
+import 'package:dart_api/db/model/gyd_status_snapshot_data_model.dart';
 import 'package:dart_api/objectbox.g.dart';
 
 class ObjectBoxDB {
   final Store store;
   late Box<UserDB> box;
-  late Box<GydInfoDB> gydBox;
+  late Box<GydStatusSnapshotDataModel> gydBox;
 
   ObjectBoxDB({required this.store}) {
     box = store.box<UserDB>();
-    gydBox = store.box<GydInfoDB>();
+    gydBox = store.box<GydStatusSnapshotDataModel>();
   }
 
   pubUser(UserDB user) {
@@ -42,8 +42,8 @@ class ObjectBoxDB {
   // }
 
   printAll() {
-    Query<GydInfoDB> query = gydBox.query().build();
-    List<GydInfoDB> uList = query.find();
+    Query<GydStatusSnapshotDataModel> query = gydBox.query().build();
+    List<GydStatusSnapshotDataModel> uList = query.find();
     print('===table gyd===============');
     for (var i in uList) {
       print('id = ${i.dbId} price = ${i.gydPrice} time = ${i.timeStamp}');

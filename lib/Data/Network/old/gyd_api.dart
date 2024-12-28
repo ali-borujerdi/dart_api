@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:dart_api/db/model/GydInfoDB.dart';
+import 'package:dart_api/db/model/gyd_status_snapshot_data_model.dart';
 import 'package:dio/dio.dart';
 
 class GydApi {
@@ -19,7 +19,7 @@ class GydApi {
     return await _dio.post(path, data: {"network": "ethereum", "period": "1Y"});
   }
 
-  Future<GydInfoDB> getApi() async {
+  Future<GydStatusSnapshotDataModel> getApi() async {
     Response response = await _getHttp(path: path1);
     Response response2 = await _getHttp2(path: path2);
     var hh = response.data as List<dynamic>;
@@ -49,10 +49,13 @@ class GydApi {
     var gydAllVolume = double.parse(data['gydAllVolume']);
     var gydEthSupply = double.parse(ccc);
 
-    var g = GydInfoDB(
-        gydPrice: gydPrice,
-        gydAllVolume: gydAllVolume,
-        gydEthSupply: gydEthSupply);
+    var g = GydStatusSnapshotDataModel(
+      gydPrice: gydPrice,
+      gydAllVolume: gydAllVolume,
+      allVolume: 0,
+      totalTVL: 0,
+      timeStamp: 0,
+    );
 
     return g;
 
