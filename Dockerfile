@@ -27,8 +27,9 @@ FROM scratch
 # FROM debian:slim AS runtime
 COPY --from=build /runtime/ /
 COPY --from=build /app/lib/server /app/lib/
-COPY --from=build /usr/lib/libobjectbox.so /usr/lib/
-COPY --from=build /usr/lib/x86_64-linux-gnu/libstdc++.so.6 /usr/lib/
+COPY --from=build /usr/lib/*.* /usr/lib/
+# COPY --from=build /usr/lib/libobjectbox.so /usr/lib/
+# COPY --from=build /usr/lib/x86_64-linux-gnu/libstdc++.so.6 /usr/lib/
 
 # Start server.
 EXPOSE 8080
