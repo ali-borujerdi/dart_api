@@ -1,3 +1,4 @@
+import 'package:dart_api/Data/MemoryDB/global_task.dart';
 import 'package:dart_api/Data/Network/fetch_gyro_homepage_json_api.dart';
 import 'package:dart_api/Domain/Entity/gyd_status_snapshot.dart';
 import 'package:dart_api/Domain/Repository/gyd_info_repository.dart';
@@ -38,6 +39,8 @@ class FetchGyroMainPageInfo {
     print(dTotalTvl);
     print(dAllVolume);
     print(dGydAllVolume);
+
+    globalPostGydStatusToTelegram.run();
   }
 
   double _getGydPriceAsDouble(String response) {

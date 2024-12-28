@@ -97,7 +97,7 @@ void main(List<String> args) async {
   var handler1 = TimingHandler();
 
   handler1.addTimer(fetchAllGyroPoolDataTimer);
-  handler1.addTimer(timer3);
+  // handler1.addTimer(timer3);
   // handler1.addTimer(timer1);
   // handler1.addTimer(timer2);
 }
