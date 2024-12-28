@@ -11,7 +11,7 @@ RUN curl -s https://raw.githubusercontent.com/objectbox/objectbox-dart/main/inst
     rm install.sh
 
 RUN mkdir -p /usr/lib && \
-    cp ./lib/libobjectbox.so /usr/lib/ && ls -l /usr/lib/libobjectbox.so
+    cp ./lib/libobjectbox.so /usr/lib/
 
 ENV LD_LIBRARY_PATH="/usr/lib"
     
@@ -21,7 +21,8 @@ RUN dart compile exe lib/server.dart -o lib/server
 
 # Build minimal serving image from AOT-compiled `/server`
 # and the pre-built AOT-runtime in the `/runtime/` directory of the base image.
-FROM scratch
+# FROM scratch
+FROM debian:slim AS runtime
 COPY --from=build /runtime/ /
 COPY --from=build /app/lib/server /app/lib/
 
