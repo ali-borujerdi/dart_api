@@ -5,8 +5,10 @@ FROM dart:stable AS build
 WORKDIR /app
 COPY pubspec.* ./
 RUN dart pub get
-RUN bash <(curl -s https://raw.githubusercontent.com/objectbox/objectbox-dart/main/install.sh)
-
+RUN curl -s https://raw.githubusercontent.com/objectbox/objectbox-dart/main/install.sh -o install.sh && \
+    bash install.sh && \
+    rm install.sh
+    
 # Copy app source code (except anything in .dockerignore) and AOT compile app.
 COPY . .
 RUN dart compile exe lib/server.dart -o lib/server
