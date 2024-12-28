@@ -60,7 +60,11 @@ Response _pointHandler(Request request) {
 }
 
 void main(List<String> args) async {
-  globalStore = Store(getObjectBoxModel(), directory: "/db");
+  try {
+    globalStore = Store(getObjectBoxModel(), directory: "/db");
+  } catch (e) {
+    print(e);
+  }
 
   globalTesterBot.telegramBotStart();
   globalProductBot.telegramBotStart();
