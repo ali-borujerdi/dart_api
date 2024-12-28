@@ -84,7 +84,7 @@ void main(List<String> args) async {
   print('Server listening on port ${server.port}');
 
   var fetchAllGyroPoolDataTimer = ScheduledTask(
-      0, 1, globalFetchGyroMainPageInfo.run, DateTime.now().minute);
+      0, 10, globalFetchGyroMainPageInfo.run, DateTime.now().minute);
   // var timer2 = MTimer(1, 2, handleTimeout2, DateTime.now().minute);
 
   var timer3 = ScheduledTask(

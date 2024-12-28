@@ -17,7 +17,7 @@ final PostDataToTelegram globalPostDataToTelegram = PostDataToTelegram(
 
 final PostGydStatusToTelegram globalPostGydStatusToTelegram =
     PostGydStatusToTelegram(
-        repository: globalGydStatusSnapshotRepository, bot: globalTesterBot);
+        repository: globalGydStatusSnapshotRepository, bot: globalProductBot);
 
 final FetchTvlChart globalFetchTvlChart = FetchTvlChart(
     bot: globalTesterBot, repository: globalGydStatusSnapshotRepository);
