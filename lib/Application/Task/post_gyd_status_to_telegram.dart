@@ -9,16 +9,19 @@ class PostGydStatusToTelegram {
   PostGydStatusToTelegram({required this.bot, required this.repository});
 
   void run() {
-    var gyd = repository.getLastGydStatusSnapshot().first;
+    var result = repository.getLastGydStatusSnapshot();
 
-    var msg = '\n🔹GYD Stablecoin:';
-    msg += '\n ▫️Price : <b> \$${_price(gyd.gydPrice)} </b>';
-    msg += '\n ▫️Total Volume : <b>\$${_test(gyd.gydAllVolume)}</b>';
-    msg += '\n';
-    msg += '\n🔹Gyroscope Pools:';
-    msg += '\n ▫️TVL : <b> \$${_test(gyd.totalTVL)}</b>';
-    msg += '\n ▫️Total Volume : <b> \$${_test(gyd.allVolume)}</b>';
-    bot.sendMessage(msg);
+    if (result.isNotEmpty) {
+      var gyd = result.first;
+      var msg = '\n🔹GYD Stablecoin:';
+      msg += '\n ▫️Price : <b> \$${_price(gyd.gydPrice)} </b>';
+      msg += '\n ▫️Total Volume : <b>\$${_test(gyd.gydAllVolume)}</b>';
+      msg += '\n';
+      msg += '\n🔹Gyroscope Pools:';
+      msg += '\n ▫️TVL : <b> \$${_test(gyd.totalTVL)}</b>';
+      msg += '\n ▫️Total Volume : <b> \$${_test(gyd.allVolume)}</b>';
+      bot.sendMessage(msg);
+    }
   }
 
   String _price(double price) {
