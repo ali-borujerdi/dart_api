@@ -11,7 +11,7 @@ RUN curl -s https://raw.githubusercontent.com/objectbox/objectbox-dart/main/inst
     rm install.sh
 
 RUN mkdir -p /usr/lib && \
-    cp ./lib/libobjectbox2.so /usr/lib/
+    cp ./lib/libobjectbox.so /usr/lib/ && ls -l /usr/lib/libobjectbox.so
 
 ENV LD_LIBRARY_PATH="/usr/lib"
     
