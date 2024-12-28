@@ -10,6 +10,8 @@ RUN curl -s https://raw.githubusercontent.com/objectbox/objectbox-dart/main/inst
     bash install.sh && \
     rm install.sh
 
+RUN apt-get update && apt-get install -y libstdc++6
+
 RUN mkdir -p /usr/lib && \
     cp ./lib/libobjectbox.so /usr/lib/
 
