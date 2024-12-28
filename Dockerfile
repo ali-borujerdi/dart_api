@@ -9,7 +9,9 @@ RUN dart pub get
 #     bash install.sh && \
 #     rm install.sh
 RUN mkdir -p /usr/lib && \
-    cp ./dart_api/lib/libobjectbox.so /usr/lib/
+    cp ./native/lib/libobjectbox.so /usr/lib/
+
+ENV LD_LIBRARY_PATH="/usr/lib"
     
 # Copy app source code (except anything in .dockerignore) and AOT compile app.
 COPY . .
