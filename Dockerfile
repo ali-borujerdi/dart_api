@@ -10,7 +10,6 @@ RUN curl -s https://raw.githubusercontent.com/objectbox/objectbox-dart/main/inst
     bash install.sh && \
     rm install.sh
 
-
 RUN mkdir -p /usr/lib && \
     cp ./lib/libobjectbox.so /usr/lib/
 
