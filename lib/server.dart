@@ -62,7 +62,7 @@ Response _pointHandler(Request request) {
 
 void main(List<String> args) async {
   try {
-    DynamicLibrary.open('/usr/lib/libobjectbox.so');
+    DynamicLibrary.open('./usr/lib/libobjectbox.so');
     globalStore = Store(getObjectBoxModel(), directory: "/db");
   } catch (e) {
     print(e);
